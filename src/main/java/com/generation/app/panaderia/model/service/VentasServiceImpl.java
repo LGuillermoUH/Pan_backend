@@ -1,37 +1,37 @@
 package com.generation.app.panaderia.model.service;
 
-import com.generation.app.panaderia.model.dao.IPanesDao;
-import com.generation.app.panaderia.model.entity.Panes;
+import com.generation.app.panaderia.model.dao.IVentasDao;
+import com.generation.app.panaderia.model.entity.Ventas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class PanesServiceImpl implements IPanesService{
+public class VentasServiceImpl implements IVentasService{
     @Autowired
-    private IPanesDao panesDao;
+    private IVentasDao ventasDao;
     @Override
     @Transactional(readOnly = true)
-    public List<Panes> findAll() {
-        return (List<Panes>) panesDao.findAll();
+    public List<Ventas> findAll() {
+        return (List<Ventas>) ventasDao.findAll();
     }
 
     @Override
     @Transactional
-    public void save(Panes panes) {
-        panesDao.save(panes);
+    public void save(Ventas ventas) {
+        ventasDao.save(ventas);
     }
 
     @Override
     @Transactional
-    public Panes findOne(Integer id) {
-        return panesDao.findById(id).orElse(null);
+    public Ventas findOne(Integer id) {
+        return ventasDao.findById(id).orElse(null);
     }
 
     @Override
     @Transactional
     public void delete(Integer id) {
-        panesDao.deleteById(id);
+        ventasDao.deleteById(id);
     }
 }

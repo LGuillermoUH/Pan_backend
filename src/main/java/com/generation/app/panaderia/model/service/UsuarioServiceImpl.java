@@ -3,10 +3,11 @@ package com.generation.app.panaderia.model.service;
 import com.generation.app.panaderia.model.dao.IUsuariosDao;
 import com.generation.app.panaderia.model.entity.Usuarios;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Service
 public class UsuarioServiceImpl implements IUsuarioService{
     @Autowired
     private IUsuariosDao usuariosDao;
