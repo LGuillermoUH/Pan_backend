@@ -67,7 +67,7 @@ public class Ventas implements Serializable {
         Double total=0.0;
         int items= ventasProductos.size();
         for (int i=0;i<items;i++){
-            total+=ventasProductos.get(i).getCantida()*ventasProductos.get(i).getPanes().getPrecioPan();
+            total+=ventasProductos.get(i).getCantidad()*ventasProductos.get(i).getPanes().getPrecioPan();
         }
         return total;
     }

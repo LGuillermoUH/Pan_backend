@@ -14,11 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductosController {
     @Autowired
     private IPanesService panesService;
-    @GetMapping("/categorias")
-    public String mostrarPan(Model model){
-        model.addAttribute("pan",panesService.findAll());
-        return "categorias";
-    }
     @GetMapping("/categorias/{categoria}")
     public String categoriasPan(@PathVariable(value = "categoria") String categoria, Model model){
         model.addAttribute("pan",panesService.findByCategoriaPanes(categoria));

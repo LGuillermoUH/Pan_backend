@@ -19,13 +19,22 @@ public class Usuarios implements Serializable {
 
     private String emailUsuario;
 
-    private String passwordUsuario;
-
-    private String PrivilegioUsuario;
     @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Ventas> ventas;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "app_user")
+    public AppUser appUser;
     public Usuarios() {
         ventas=new ArrayList<Ventas>();
+    }
+
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public List<Ventas> getVentas() {
@@ -66,22 +75,6 @@ public class Usuarios implements Serializable {
 
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
-    }
-
-    public String getPasswordUsuario() {
-        return passwordUsuario;
-    }
-
-    public void setPasswordUsuario(String passwordUsuario) {
-        this.passwordUsuario = passwordUsuario;
-    }
-
-    public String getPrivilegioUsuario() {
-        return PrivilegioUsuario;
-    }
-
-    public void setPrivilegioUsuario(String privilegioUsuario) {
-        PrivilegioUsuario = privilegioUsuario;
     }
 
     public void addVenta(Ventas venta){

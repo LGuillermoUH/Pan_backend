@@ -1,7 +1,6 @@
 package com.generation.app.panaderia.model.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -18,7 +17,7 @@ public class VentasProductos implements Serializable {
         return panes;
     }
 
-    private int cantida;
+    private int cantidad;
 
     public int getIdVentaProducto() {
         return idVentaProducto;
@@ -28,12 +27,12 @@ public class VentasProductos implements Serializable {
         this.idVentaProducto = idVentaProducto;
     }
 
-    public int getCantida() {
-        return cantida;
+    public int getCantidad() {
+        return cantidad;
     }
 
     public void setCantida(int cantida) {
-        this.cantida = cantida;
+        this.cantidad = cantida;
     }
 
     public static final long serialVersionUID = 1L;
