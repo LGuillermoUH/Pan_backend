@@ -11,13 +11,13 @@ public class Proveedores implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProveedor;
-    @NotEmpty
+
     private String nombreProveedor;
-    @NotEmpty
+
     private String emailProveedor;
-    @NotEmpty
+
     private String contactoProveedor;
-    @NotNull
+
     private Date diaEntrega;
 
     public int getIdProveedor() {

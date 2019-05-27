@@ -3,6 +3,8 @@ package com.generation.app.panaderia.model.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="usuarios")
@@ -10,16 +12,29 @@ public class Usuarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-    @NotEmpty
+
     private String nombreUsuario;
-    @NotEmpty
+
     private String apellidoUsuario;
-    @NotEmpty
+
     private String emailUsuario;
-    @NotEmpty
+
     private String passwordUsuario;
-    @NotEmpty
+
     private String PrivilegioUsuario;
+    @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Ventas> ventas;
+    public Usuarios() {
+        ventas=new ArrayList<Ventas>();
+    }
+
+    public List<Ventas> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Ventas> ventas) {
+        this.ventas = ventas;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -69,5 +84,8 @@ public class Usuarios implements Serializable {
         PrivilegioUsuario = privilegioUsuario;
     }
 
+    public void addVenta(Ventas venta){
+        ventas.add(venta);
+    }
     public static final long serialVersionUID = 1L;
 }

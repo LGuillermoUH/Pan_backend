@@ -3,19 +3,38 @@ package com.generation.app.panaderia.model.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "ventas")
 public class Ventas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVenta;
-    @NotNull
-    private int idUsuario;
-    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuarios usuario;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_venta")
+    private List<VentasProductos> ventasProductos;
+    @Temporal(TemporalType.DATE)
     private Date fechaVenta;
-    @NotNull
     private int tipoPago;
+    public Ventas() {
+        ventasProductos=new ArrayList<VentasProductos>();
+    }
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
+    }
+    @PrePersist
+    public void prePersit(){
+        fechaVenta=new Date();
+    }
+
 
     public int getIdVenta() {
         return idVenta;
@@ -23,14 +42,6 @@ public class Ventas implements Serializable {
 
     public void setIdVenta(int idVenta) {
         this.idVenta = idVenta;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public Date getFechaVenta() {
@@ -49,5 +60,22 @@ public class Ventas implements Serializable {
         this.tipoPago = tipoPago;
     }
 
+    public List<VentasProductos> getVentasProductos() {
+        return ventasProductos;
+    }
+    public Double getTotal(){
+        Double total=0.0;
+        int items= ventasProductos.size();
+        for (int i=0;i<items;i++){
+            total+=ventasProductos.get(i).getCantida()*ventasProductos.get(i).getPanes().getPrecioPan();
+        }
+        return total;
+    }
+    public void setVentasProductos(List<VentasProductos> ventasProductos) {
+        this.ventasProductos = ventasProductos;
+    }
+    public  void  addVentasProducto(VentasProductos ventasProductos1){
+        ventasProductos.add(ventasProductos1);
+    }
     public static final long serialVersionUID = 1L;
 }

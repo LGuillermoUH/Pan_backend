@@ -34,4 +34,10 @@ public class PanesServiceImpl implements IPanesService{
     public void delete(Integer id) {
         panesDao.deleteById(id);
     }
+
+    public List<Panes> findByCategoriaPanes(String categoria){
+        return panesDao.findByCategoriaPan(categoria);
+    }
+
+
 }

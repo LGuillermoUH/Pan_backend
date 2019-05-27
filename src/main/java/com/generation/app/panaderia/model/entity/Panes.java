@@ -1,26 +1,23 @@
 package com.generation.app.panaderia.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "panes")
 public class Panes implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPan;
-    @NotEmpty
+
     private String nombrePan;
-    @NotEmpty
+
     private String categoriaPan;
-    @NotNull
+
     private Double precioPan;
-    @NotNull
+
     private int stockPan;
-    @NotEmpty
+
     private String url;
 
     public int getIdPan() {

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Url</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pan: ${pan}">
+        <td th:text="${pan.nombrePan}"></td>
+        <td th:text="${pan.categoriaPan}"></td>
+        <td th:text="${pan.precioPan}"></td>
+        <td th:text="${pan.stockPan}"></td>
+        <td th:text="${pan.url}"></td>
+        <td><a class="btn btn-primary btn-xs" th:href="@{/form/} + ${pan.idPan}" th:text="editar"></a></td>
+        <td><a class="btn btn-danger btn-xs" th:href="@{/eliminar/} + ${pan.idPan}" th:text="eliminar" onclick="return confirm('estas seguro');"></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

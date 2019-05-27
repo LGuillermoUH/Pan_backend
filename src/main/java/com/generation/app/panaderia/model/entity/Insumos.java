@@ -10,13 +10,13 @@ public class Insumos implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int idInsumo;
-        @NotNull
+
         private int idProveedor;
-        @NotEmpty
+
         private String nombreInsumo;
-        @NotNull
+
         private Double precioInsumo;
-        @NotEmpty
+
         private String cantidadInsumos;
 
     public int getIdInsumo() {

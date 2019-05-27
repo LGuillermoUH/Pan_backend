@@ -10,11 +10,11 @@ public class Comentarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComentario;
-    @NotEmpty
+
     private int idVenta;
-    @NotEmpty
+
     private int idUsuario;
-    @NotEmpty
+
     private String comentario;
 
     public int getIdComentario() {

@@ -10,11 +10,14 @@ public class VentasProductos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVentaProducto;
-    @NotNull
-    private int idVenta;
-    @NotNull
-    private int idPan;
-    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_pan")
+    private Panes panes;
+
+    public Panes getPanes() {
+        return panes;
+    }
+
     private int cantida;
 
     public int getIdVentaProducto() {
@@ -23,22 +26,6 @@ public class VentasProductos implements Serializable {
 
     public void setIdVentaProducto(int idVentaProducto) {
         this.idVentaProducto = idVentaProducto;
-    }
-
-    public int getIdVenta() {
-        return idVenta;
-    }
-
-    public void setIdVenta(int idVenta) {
-        this.idVenta = idVenta;
-    }
-
-    public int getIdPan() {
-        return idPan;
-    }
-
-    public void setIdPan(int idPan) {
-        this.idPan = idPan;
     }
 
     public int getCantida() {

@@ -9,4 +9,5 @@ public interface IPanesService {
     public void save(Panes panes);
     public Panes findOne(Integer id);
     public  void delete(Integer id);
+    public List<Panes> findByCategoriaPanes(String categoria);
 }
