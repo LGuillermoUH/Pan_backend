@@ -2,31 +2,54 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Barbarillo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .boxProducto
+        {
+            padding: 10px;
+            border: purple 2px solid;
+            border-radius: 20px 20px 20px 20px;
+        }
+    </style>
 </head>
 <body>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Categoria</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Url</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="pan: ${pan}">
-        <td th:text="${pan.nombrePan}"></td>
-        <td th:text="${pan.categoriaPan}"></td>
-        <td th:text="${pan.precioPan}"></td>
-        <td th:text="${pan.stockPan}"></td>
-        <td th:text="${pan.url}"></td>
-        <td><a class="btn btn-primary btn-xs" th:href="@{/form/} + ${pan.idPan}" th:text="editar"></a></td>
-        <td><a class="btn btn-danger btn-xs" th:href="@{/eliminar/} + ${pan.idPan}" th:text="eliminar" onclick="return confirm('estas seguro');"></a></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="container">
+        <header>
+            
+        </header>
+        <section>
+            <div class="row">
+                <div th:each="pan: ${pan}" th:id="boxProducto + ${pan.idPan}" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 boxProducto">
+                    <div class="form-group">
+                        <p th:text="${pan.nombrePan}"></p>
+                        <p>
+                            <label>Precio: </label>
+                            <label th:text="${pan.precioPan}"></label>
+                        </p>
+                        <p>
+                            <img th:src="${pan.url}" alt="Pan" width="300" height="200">
+                        </p>
+                        <p>
+                            <label>Cantidad: </label>
+                            <input type="text" placeholder="1" class="form-control" th:id="txtPrecio + ${pan.idPan}">
+                        </p>
+                        <p>
+                            <a class="btn btn-primary btn-xs" th:href="@{/carrito/} + ${pan.idPan}" th:text="Agregar"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 </html>

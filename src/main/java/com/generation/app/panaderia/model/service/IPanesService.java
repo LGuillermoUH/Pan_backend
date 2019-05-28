@@ -10,4 +10,5 @@ public interface IPanesService {
     public Panes findOne(Integer id);
     public  void delete(Integer id);
     public List<Panes> findByCategoriaPanes(String categoria);
+    public List<Panes> findByCategoriaPanesNotIn(List<String> categoria);
 }

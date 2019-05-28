@@ -27,8 +27,6 @@ public class Usuarios implements Serializable {
     public Usuarios() {
         ventas=new ArrayList<Ventas>();
     }
-
-
     public AppUser getAppUser() {
         return appUser;
     }

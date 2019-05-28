@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ProductosController {
     @Autowired
@@ -19,11 +22,30 @@ public class ProductosController {
         model.addAttribute("pan",panesService.findByCategoriaPanes(categoria));
         return "categorias";
     }
+    @GetMapping("/categorias/pasteles")
+    public String categoriasPanEspecifico( Model model){
+        List<String> categorias=new ArrayList<String>();
+        categorias.add("temporada");
+        categorias.add("panes");
+        categorias.add("otros");
+        model.addAttribute("pan",panesService.findByCategoriaPanesNotIn(categorias));
+        return "categorias";
+    }
+    @GetMapping("/categorias")
+    public String categorias(Model model){
+        model.addAttribute("pan",panesService.findAll());
+        return "categorias";
+    }
+    @GetMapping("/productos")
+    public String categoriasEditar(Model model){
+        model.addAttribute("pan",panesService.findAll());
+        return "productos";
+    }
     @GetMapping("/form")
     public String crear(Model model){
         Panes panes =new Panes();
         model.addAttribute("pan",panes);
-        return "form";
+        return "add_product";
     }
     @PostMapping("/form")
     public String guardar(Panes panes){
@@ -35,13 +57,13 @@ public class ProductosController {
         Panes panes=null;
             panes =panesService.findOne(idPan);
         model.addAttribute("pan",panes);
-        return "form";
+        return "add_product";
     }
     @RequestMapping(value = "/eliminar/{id}")
     public String eliminar(@PathVariable(value = "id") Integer id){
         if (id>0){
             panesService.delete(id);
         }
-        return "redirect:/categorias";
+        return "redirect:/productos";
     }
 }

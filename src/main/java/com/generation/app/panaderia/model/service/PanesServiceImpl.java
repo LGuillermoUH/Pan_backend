@@ -2,6 +2,7 @@ package com.generation.app.panaderia.model.service;
 
 import com.generation.app.panaderia.model.dao.IPanesDao;
 import com.generation.app.panaderia.model.entity.Panes;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,10 +35,11 @@ public class PanesServiceImpl implements IPanesService{
     public void delete(Integer id) {
         panesDao.deleteById(id);
     }
-
+    @Transactional
     public List<Panes> findByCategoriaPanes(String categoria){
         return panesDao.findByCategoriaPan(categoria);
     }
-
+    @Transactional
+    public List<Panes> findByCategoriaPanesNotIn(List<String> categoria){return panesDao.findByCategoriaPanIsNotIn(categoria);}
 
 }
