@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Lora';
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(47, 23, 15, 0.45))), url("../img/PanFondo.jpeg");
@@ -262,26 +263,4 @@ header{
 
 .footer {
     background-color: rgba(47, 23, 15, 0.9);
-}
-.boxProductos
-{
-    padding: 10px;
-    border: purple 2px solid;
-    border-radius: 20px 20px 20px 20px;
-}
-
-input
-{
-    size: 10px;
-}
-.lblPrecio
-{
-    font-size: 60px;
-    text-align: center;
-}
-
-.lblNombreProducto
-{
-    font-size: 30px;
-    font-weight: bold;
 }
