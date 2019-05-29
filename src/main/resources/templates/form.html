@@ -5,43 +5,43 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:action="@{/form}" th:object="${pan}" method="POST" >
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-6">
-                <input  type="text" th:field="*{nombrePan}" class=" form-control"/>
-            </div>
+<form th:action="@{/form}" th:object="${pan}" method="POST" >
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-6">
+            <input  type="text" th:field="*{nombrePan}" class=" form-control"/>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Categoria</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{categoriaPan}" class="form-control"/>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Categoria</label>
+        <div class="col-sm-6">
+            <input type="text" th:field="*{categoriaPan}" class="form-control" />
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">precioPan</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{precioPan}" class="form-control"/>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">precioPan</label>
+        <div class="col-sm-6">
+            <input type="text" th:field="*{precioPan}" class="form-control"/>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">stock</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" th:field="*{stockPan}"/>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">stock</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" th:field="*{stockPan}"/>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Url</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" th:field="*{url}"/>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Url</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" th:field="*{url}"/>
         </div>
-        <input  type="hidden" th:field="*{idPan}"/>
-        <div class="form-group">
-            <div class="col-sm-6">
-                <input type="submit" value="Crear Pan" class="btn btn-primary"/>
-            </div>
+    </div>
+    <input  type="hidden" th:field="*{idPan}"/>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <input type="submit" value="Crear Pan" class="btn btn-primary"/>
         </div>
-    </form>
+    </div>
+</form>
 </body>
 </html>

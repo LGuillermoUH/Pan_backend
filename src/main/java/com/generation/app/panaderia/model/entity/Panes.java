@@ -20,16 +20,6 @@ public class Panes implements Serializable {
 
     private String url;
 
-    private String descripcionPan;
-
-    public String getDescripcionPan() {
-        return descripcionPan;
-    }
-
-    public void setDescripcionPan(String descripcionPan) {
-        this.descripcionPan = descripcionPan;
-    }
-
     public int getIdPan() {
         return idPan;
     }
