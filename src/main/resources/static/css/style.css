@@ -9,3 +9,15 @@ input
 {
 	size: 10;
 }
+
+.lblPrecio
+{
+    font-size: 60px;
+    text-align: center;
+}
+
+.lblNombreProducto
+{
+    font-size: 30px;
+    font-weight: bold;
+}
