@@ -1,0 +1,11 @@
+.boxProductos
+{
+	padding: 10px;
+    border: purple 2px solid;
+    border-radius: 20px 20px 20px 20px;
+}
+
+input
+{
+	size: 10;
+}
