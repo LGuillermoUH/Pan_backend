@@ -22,11 +22,11 @@ public class ProductosController {
         model.addAttribute("pan",panesService.findByCategoriaPanes(categoria));
         return "categorias";
     }
-    @GetMapping("/categorias/pasteles")
+    @GetMapping("/categorias/panes")
     public String categoriasPanEspecifico( Model model){
         List<String> categorias=new ArrayList<String>();
         categorias.add("temporada");
-        categorias.add("panes");
+        categorias.add("pasteles");
         categorias.add("otros");
         model.addAttribute("pan",panesService.findByCategoriaPanesNotIn(categorias));
         return "categorias";
@@ -41,18 +41,18 @@ public class ProductosController {
         model.addAttribute("pan",panesService.findAll());
         return "productos";
     }
-    @GetMapping("/form")
+    @GetMapping("/añadirProducto")
     public String crear(Model model){
         Panes panes =new Panes();
         model.addAttribute("pan",panes);
         return "add_product";
     }
-    @PostMapping("/form")
+    @PostMapping("/añadirProducto")
     public String guardar(Panes panes){
         panesService.save(panes);
         return "redirect:categorias";
     }
-    @RequestMapping(value = "/form/{idPan}")
+    @RequestMapping(value = "/añadirProducto/{idPan}")
     public String editar(@PathVariable(value = "idPan") Integer idPan, Model model){
         Panes panes=null;
             panes =panesService.findOne(idPan);
