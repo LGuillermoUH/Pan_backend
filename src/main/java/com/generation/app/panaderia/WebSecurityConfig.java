@@ -24,17 +24,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/resources/**", "/registration").permitAll()
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/", "/login", "/logout","/registration").permitAll();
+
+        http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/")
+                .loginPage("/login").defaultSuccessUrl("/index")
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll();
+
+        http.authorizeRequests().and().formLogin()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
     }
 
     @Bean
