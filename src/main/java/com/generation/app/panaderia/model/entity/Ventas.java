@@ -14,7 +14,7 @@ public class Ventas implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVenta;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Usuarios usuario;
+    private User usuario;
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_venta")
     private List<VentasProductos> ventasProductos;
@@ -24,10 +24,10 @@ public class Ventas implements Serializable {
     public Ventas() {
         ventasProductos=new ArrayList<VentasProductos>();
     }
-    public Usuarios getUsuario() {
+    public User getUsuario() {
         return usuario;
     }
-    public void setUsuario(Usuarios usuario) {
+    public void setUsuario(User usuario) {
         this.usuario = usuario;
     }
     @PrePersist

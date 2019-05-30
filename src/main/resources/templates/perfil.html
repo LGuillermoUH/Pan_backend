@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Barbarillo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    
+<div class="container">
+    <header>
+
+    </header>
+    <section>
+        <div class="row">
+            <div id="boxForm" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <h2>Enter the Product</h2>
+                <form th:action="@{/registro}"  method="POST">
+                    <div class="form-group" >
+                        <p>
+                            <label for="txtNombre">Nombre:</label>
+                            <input  type="text" th:field="${usuario.nombreUsuario}" id="txtNombre" class="form-control"/>
+                        </p>
+                        <p>
+                            <label for="txtCategoria">Apellido:</label>
+                            <input type="text" th:field="${usuario.apellidoUsuario}" id="txtCategoria" class="form-control" />
+                        </p>
+                        <p>
+                            <label for="txtPrecio">Email:</label>
+                            <input type="email" th:field="${usuario.emailUsuario}" id="txtPrecio" class="form-control" />
+                        </p>
+                        <p>
+                            <label for="txtStock">nombre Usuario:</label>
+                            <input type="text" class="form-control" th:field="${user.userName}" id="txtStock" />
+                        </p>
+                        <p>
+                            <label for="txtUrl">pass:</label>
+                            <input type="text" class="form-control" th:field="${user.encrytedPassword}" id="txtUrl" />
+                        </p>
+                            <input type="text" class="form-control" th:field="${user.enabled}" th:value="true" id="txtUrl" />
+                        <input type="hidden" class="form-control" th:field="${usuario.idUsuario}"   />
+                        <p>
+                            <input type="submit" value="Agregar Producto" class="btn btn-primary"/>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="/scripts/script.js"></script>
 </body>
 </html>

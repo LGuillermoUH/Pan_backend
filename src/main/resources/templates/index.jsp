@@ -1,17 +1,22 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Barbarillo</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Barbarillo</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+</head>
 <body>
-<<<<<<< HEAD
-
-
 
 <header>
     <div class="navbar navbar-expand-lg py-lg-4 navbar-default navbar-fixed-top" role="navigation" id="mainNav">
@@ -37,9 +42,9 @@
                             <i class="fas fa-bread-slice"></i> <label class="label"> Productos</label>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" th:href="@{/categorias/panes/}">Panes</a>
-                            <a class="dropdown-item" th:href="@{/categorias/temporada/}">Panes de Temporada</a>
-                            <a class="dropdown-item" th:href="@{/categorias/pasteles/}">Pasteles</a>
+                            <a class="dropdown-item" th:href="@{/categorias/panes}">Panes</a>
+                            <a class="dropdown-item" th:href="@{/categorias/temporada}">Panes de Temporada</a>
+                            <a class="dropdown-item" th:href="@{/categorias/pasteles}">Pasteles</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" th:href="@{/categorias/otros}">Otros</a>
                         </div>
@@ -56,12 +61,11 @@
                                 <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar sesión</a>
                             <div th:if="${#request.userPrincipal != null}" class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-user" aria-hidden="true"></i><span th:utext="${#request.userPrincipal.name}"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li> <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesión</a></li>
-                                    </ul>
+                                <ul class="dropdown-menu">
+                                    <li> <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesión</a></li>
+                                </ul>
 
                             </div>
-
                         </div>
                     </li>
                 </ul>
@@ -89,7 +93,7 @@
 
                                     <div class="tab-pane fade in show active" id="inicio" role="tabpanel">
 
-                                        <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
+                                        <form name='f' th:action="@{/login}" method='POST'>
                                             <div class="modal-body mb-1">
                                                 <div class="md-form form-sm mb-3">
                                                     <div class="input-group">
@@ -111,6 +115,7 @@
                                                         <label class="lblPass blue-text" for="pass">Recordar contraseña</label>
                                                         <input id="pass" type="checkbox" class="text-left" >
                                                     </div>
+                                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                                 </div>
                                                 <div class="text-center mt-2">
                                                     <input class="btn btn-primary" name="submit" type="submit" value="submit"><i class="fas fa-sign-in ml-1"></i></input>
@@ -127,7 +132,7 @@
                                     </div>
 
                                     <div class="tab-pane fade" id="registro" role="tabpanel">
-                                        <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
+                                        <form name='f' th:action="@{/registro}"  method='POST'>
 
                                             <div class="modal-body">
                                                 <div class="md-form form-sm mb-3">
@@ -135,7 +140,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">Nombre</span>
                                                         </div>
-                                                        <input type="email" id="modalLRInput10" class="form-control" aria-hidden="true" required>
+                                                        <input type="text"  id="modalLRInput10" class="form-control" aria-hidden="true" required>
                                                     </div>
 
                                                 </div>
@@ -159,9 +164,6 @@
                                                         </div>
 
                                                         <input type="email" id="modalLRInput10" class="form-control" aria-hidden="true" required>
-
-
-
                                                     </div>
                                                 </div>
 
@@ -197,6 +199,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -213,63 +220,30 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 img-fluid" th:src="@{/img/carousel.jpeg}" alt="">
+                        <img  class="d-block w-100 img-fluid" th:src="@{img/carousel.jpeg}" alt="">
                         <div class="carousel-caption d-md-block">
                             <h5>Hola</h5>
                             <p>Hola</p>
                             <input type="button" value="gsd" class="btn btn-primary">
                         </div>
-=======
-    <div class="container">
-        <header>
-        
-        </header>
-        <section>
-            <div class="row">
-                <div id="boxPanes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <form th:action="@{/categorias/panes/}" th:object="${pan}" method="GET">
-                        <div class="form-group">
-                            <p>
-                                <label>Categoria Panes</label>
-                            </p>
-                            <p>
-                                <input type="submit" value="Panes" class="btn btn-primary"/>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            <div id="boxPanes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <form th:action="@{/categorias/pasteles/}" th:object="${pan}" method="GET">
-                    <div class="form-group">
-                        <p>
-                            <label>Categoria Pasteles</label>
-                        </p>
-                        <p>
-                            <input type="submit" value="Pasteles" class="btn btn-primary"/>
-                        </p>
->>>>>>> parent of 39346bc... front v3
                     </div>
-                </form>
-            </div>
-            <div id="boxPanes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <form th:action="@{/categorias/temporada}" th:object="${pan}" method="GET">
-                    <div class="form-group">
-                        <p>
-                            <label>Categoria Temporada</label>
-                        </p>
-                        <p>
-                            <input type="submit" value="Temporada" class="btn btn-primary"/>
-                        </p>
-                    </div>
-<<<<<<< HEAD
                     <div class="carousel-item">
-                        <img class="d-block w-100" th:src="@{/img/carousel.jpeg}" alt="Third slide">
+                        <img class="d-block w-100" th:src="@{img/carousel.jpeg}" alt="Second slide">
                         <div class="carousel-caption d-md-block">
                             <h5>Hola</h5>
                             <p>Hola</p>
                             <input type="button" value="gsd" class="btn btn-primary">
                         </div>
-
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" th:src="@{img/carousel.jpeg}" alt="Third slide">
+                        <div class="carousel-caption d-md-block">
+                            <h5>Hola</h5>
+                            <p>Hola</p>
+                            <input type="button" value="gsd" class="btn btn-primary">
+                        </div>
+                    </div>
+                </div>
                 <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -278,30 +252,73 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-=======
-                </form>
             </div>
-            <div id="boxPanes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <form th:action="@{/categorias/otros}" th:object="${pan}" method="GET">
-                      <div class="form-group">
-                        <p>
-                            <label>Categoria Otros</label>
-                        </p>
-                        <p>
-                            <input type="submit" value="Otros" class="btn btn-primary"/>
-                        </p>
-                    </div>
-                </form>
->>>>>>> parent of 39346bc... front v3
-            </div>
-            </div>
-        </section>
-        <footer>
-
-        </footer>
+        </div>
     </div>
-<<<<<<< HEAD
+</div>
 
+
+
+
+
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-lower">Categorias</span>
+                    </h2>
+
+
+                    <section class="page-section clearfix">
+                        <div class="container">
+                            <div class="intro">
+                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro.jpeg}" alt="">
+                                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                                    <h2 class="section-heading mb-4">
+                                        <span class="section-heading-upper">Delicioso Pan</span>
+                                        <span class="section-heading-lower">Haz tu pedido</span>
+                                    </h2>
+                                    <p class="mb-3">Esoge cualquiera de nuestros productos y disfruta del gran sabor que tienen xdxdxd
+                                    </p>
+                                    <div class="intro-button mx-auto">
+                                        <a class="btn btn-primary btn-xl" href="#">¡Ve nuestros productos!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="page-section clearfix">
+                        <div class="container">
+                            <div class="intro">
+                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro.jpeg}" alt="">
+                                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                                    <h2 class="section-heading mb-4">
+                                        <span class="section-heading-upper">Delicioso Pan</span>
+                                        <span class="section-heading-lower">Haz tu pedido</span>
+                                    </h2>
+                                    <p class="mb-3">Esoge cualquiera de nuestros productos y disfruta del gran sabor que tienen xdxdxd
+                                    </p>
+                                    <div class="intro-button mx-auto">
+                                        <a class="btn btn-primary btn-xl" href="#">¡Ve nuestros productos!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+        <p class="m-0 small">Copyright &copy; Barbarillo 2019</p>
+    </div>
 </footer>
 
 
@@ -311,11 +328,5 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="/scripts/script.js"></script>
-
-=======
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="/scripts/script.js"></script>
->>>>>>> parent of 39346bc... front v3
 </body>
 </html>
