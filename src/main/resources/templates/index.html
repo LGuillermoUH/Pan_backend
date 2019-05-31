@@ -217,26 +217,26 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img  class="d-block w-100 img-fluid" th:src="@{img/carousel.jpeg}" alt="">
+                        <img  class="d-block w-100 img-fluid" th:src="@{img/banner1.jpg}" alt="banner 1">
                         <div class="carousel-caption d-md-block">
-                            <h5>Hola</h5>
-                            <p>Hola</p>
+                            <h5>Barbarillo</h5>
+                            <p>¡Nuestros 20 años de experiencia hablan por si solos!</p>
+                            <a th:href="@{/nosotros}"><input type="button" value="Conocenos" class="btn btn-primary"></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" th:src="@{img/banner2.jpg}" alt="banner 2">
+                        <div class="carousel-caption d-md-block">
+                            <h5>100% Artesanal</h5>
+                            <p>Mantenemos esa tradición que le da el toque especial a nuestros productos!</p>
                             <input type="button" value="gsd" class="btn btn-primary">
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" th:src="@{img/carousel.jpeg}" alt="Second slide">
+                        <img class="d-block w-100" th:src="@{img/banner3.jpg}" alt="banner 3">
                         <div class="carousel-caption d-md-block">
-                            <h5>Hola</h5>
-                            <p>Hola</p>
-                            <input type="button" value="gsd" class="btn btn-primary">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" th:src="@{img/carousel.jpeg}" alt="Third slide">
-                        <div class="carousel-caption d-md-block">
-                            <h5>Hola</h5>
-                            <p>Hola</p>
+                            <h5>¡PROXIMAMENTE!</h5>
+                            <p>Esperalos! dentro de poco tendremos nuestras delicias de la reposteria ahora en miniatura!</p>
                             <input type="button" value="gsd" class="btn btn-primary">
                         </div>
                     </div>
@@ -267,16 +267,16 @@
                     <section class="page-section clearfix">
                         <div class="container">
                             <div class="intro">
-                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro.jpeg}" alt="">
+                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro.jpg}" alt="">
                                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                                     <h2 class="section-heading mb-4">
-                                        <span class="section-heading-upper">Delicioso Pan</span>
-                                        <span class="section-heading-lower">Haz tu pedido</span>
+                                        <span class="section-heading-upper">Prueba Nuestro</span>
+                                        <span class="section-heading-lower">Pan de Temporada</span>
                                     </h2>
-                                    <p class="mb-3">Esoge cualquiera de nuestros productos y disfruta del gran sabor que tienen xdxdxd
+                                    <p class="mb-3">La mejor opcion para esos eventos especiales que quieres pasar junto a tu familia!
                                     </p>
                                     <div class="intro-button mx-auto">
-                                        <a class="btn btn-primary btn-xl" href="#">¡Ve nuestros productos!</a>
+                                        <a class="btn btn-primary btn-xl" th:href="@{/categorias/temporada}">¡Ver productos!</a>
                                     </div>
                                 </div>
                             </div>
@@ -286,22 +286,58 @@
                     <section class="page-section clearfix">
                         <div class="container">
                             <div class="intro">
-                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro.jpeg}" alt="">
+                                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro2.jpg}" alt="">
                                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                                     <h2 class="section-heading mb-4">
-                                        <span class="section-heading-upper">Delicioso Pan</span>
-                                        <span class="section-heading-lower">Haz tu pedido</span>
+                                        <span class="section-heading-upper">Deliciosos</span>
+                                        <span class="section-heading-lower">Pasteles</span>
                                     </h2>
-                                    <p class="mb-3">Esoge cualquiera de nuestros productos y disfruta del gran sabor que tienen xdxdxd
+                                    <p class="mb-3">¡Así es! Tambien hacemos increibles pasteles para que celebres cualquier evento
                                     </p>
                                     <div class="intro-button mx-auto">
-                                        <a class="btn btn-primary btn-xl" href="#">¡Ve nuestros productos!</a>
+                                        <a class="btn btn-primary btn-xl" th:href="@{/categorias/pasteles}">¡Ve nuestros pasteles!</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+                    <section class="page-section clearfix">
+                            <div class="container">
+                                <div class="intro">
+                                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro3.jpg}" alt="">
+                                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                                        <h2 class="section-heading mb-4">
+                                            <span class="section-heading-upper">Delicioso Pan</span>
+                                            <span class="section-heading-lower">Tradicional Mexicano</span>
+                                        </h2>
+                                        <p class="mb-3">Tenemos mas de 20 años proporcionando sabor e historia con nuestros panes
+                                        </p>
+                                        <div class="intro-button mx-auto">
+                                            <a class="btn btn-primary btn-xl" th:href="@{/categorias/panes}">¡Ve nuestros panes!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
+                        <section class="page-section clearfix">
+                                <div class="container">
+                                    <div class="intro">
+                                        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" th:src="@{img/intro4.jpg}" alt="">
+                                        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                                            <h2 class="section-heading mb-4">
+                                                <span class="section-heading-upper">También Utencilios</span>
+                                                <span class="section-heading-lower">Para Eventos</span>
+                                            </h2>
+                                            <p class="mb-3">Nunca pueden faltar, así que te ahorramos tener que ir por ellos mas tarde!
+                                            </p>
+                                            <div class="intro-button mx-auto">
+                                                <a class="btn btn-primary btn-xl" th:href="@{/categorias/otros}">¡Ve nuestros productos!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                 </div>
             </div>
         </div>

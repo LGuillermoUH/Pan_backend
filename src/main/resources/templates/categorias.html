@@ -46,7 +46,7 @@
 
                     </li>
                     <li class="nav-item  px-lg-4">
-                        <a class="nav-link text-expanded" href="index.html">
+                        <a class="nav-link text-expanded" th:href="@{/}">
                             <i class="fas fa-home"></i> <label class="label"> Inicio</label></a>
                     </li>
                     <li class="nav-item active dropdown">
@@ -55,19 +55,19 @@
                             <i class="fas fa-bread-slice"></i> <label class="label"> Productos</label>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="categorias.html">Panes</a>
-                            <a class="dropdown-item" href="categorias.html">Panes de Temporada</a>
-                            <a class="dropdown-item" href="categorias.html">Pasteles</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="categorias.html">Otros</a>
-                        </div>
+                                <a class="dropdown-item" th:href="@{/categorias/panes}">Panes</a>
+                                <a class="dropdown-item" th:href="@{/categorias/temporada}">Panes de Temporada</a>
+                                <a class="dropdown-item" th:href="@{/categorias/pasteles}">Pasteles</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/categorias/otros}">Otros</a>
+                            </div>
                     </li>
                     <li class="nav-item  px-lg-4">
-                        <a class="nav-link" href="nosotros.html"><i class="fas fa-users"></i> <label class="label">
+                        <a class="nav-link" th:href="@{/nosotros}"><i class="fas fa-users"></i> <label class="label">
                                 Nosotros</label></a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link" href="contacto.html"><i class="fas fa-envelope"></i> <label
+                        <a class="nav-link" th:href="@{/contacto}"><i class="fas fa-envelope"></i> <label
                                 class="label"> Contacto</label></a>
                     </li>
                     <li class="nav-item px-lg-4">
