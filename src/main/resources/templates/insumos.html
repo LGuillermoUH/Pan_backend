@@ -164,58 +164,40 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Agregar Producto</h1>
+          <h1 class="h3 mb-4 text-gray-800">Inventario de Insumos</h1>
           <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Ingrese los siguientes datos</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Lista de Insumos</h6>
               </div>
 
               <!-- aqui va el form -->
               <div class="card-body">
-                  <form th:action="@{/añadirProducto}" th:object="${pan}" method="POST">                            
-                      <div class="md-form form-sm mb-3">
-                          <div class="input-group">
-                              <div class="input-group-prepend">
-                                  <span class="input-group-text">Nombre de producto</span>
-                              </div>
-                              <input type="text" th:field="*{nombrePan}" id="txtNombre" class="form-control" autocomplete="off" required>
-                          </div>                  
-                      </div>
-                      <div class="md-form form-sm mb-3">
-                              <div class="input-group">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">Categoria</span>
-                                  </div>
-                                  <input type="text" th:field="*{categoriaPan}" id="txtCategoria" class="form-control" autocomplete="off" required>
-                              </div>                  
-                      </div>
-                      <div class="md-form form-sm mb-3">
-                              <div class="input-group">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">Precio</span>
-                                  </div>
-                                  <input type="number" step="any"th:field="*{precioPan}" id="txtPrecio" class="form-control" autocomplete="off" required>
-                              </div>                  
-                          </div>
-                      <div class="md-form form-sm mb-3">
-                              <div class="input-group">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">Stock</span>
-                                  </div>
-                                  <input type="number" th:field="*{stockPan}" id="txtStock" class="form-control" autocomplete="off" required>
-                              </div>                  
-                       </div>
-                       <div class="md-form form-sm mb-3">
-                              <div class="input-group">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">URL</span>
-                                  </div>
-                                  <input type="text" th:field="*{url}" id="txtUrl" class="form-control" autocomplete="off" required>
-                                  <input  type="hidden" th:field="*{idPan}"/>
-                              </div>                  
-                       </div>
-                       <input class="btn btn-primary form-control" type="submit" value="Agregar">
-                      </form> 
+                    <a th:href="@{/formInsumos}"><input type="button" value="Añadir un nuevo Producto"  class="btn btn-primary"></a>
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Nombre Proveedor</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="insumo: ${insumos}">
+                      <td scope="row" th:text="${insumo.idInsumo}"></td>
+                      <td th:text="${insumo.nombreInsumo}"></td>
+                      <td th:text="${insumo.nombreProveedor}"></td>
+                      <td th:text="${insumo.precioInsumo}"></td>
+                      <td th:text="${insumo.cantidadInsumo}"></td>
+                      <td><a class="btn btn-primary" th:action="@{/formInsumos/} + ${insumo.idInsumo}" th:text="editar"></a></td>
+                      <td><a class="btn btn-danger btn-xs" th:href="@{/eliminarInsumos/} + ${pan.idPan}" th:text="eliminar" onclick="return confirm('estas seguro');"></a></td>
+                  </tr>
+                  </tbody>
+              </table>
                 <!-- esto es un <hr> de toda la vida -->
                 <hr>
               </div>
