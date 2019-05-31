@@ -18,7 +18,15 @@ public class Proveedores implements Serializable {
 
     private String contactoProveedor;
 
-    private Date diaEntrega;
+    private String diaEntrega;
+
+    public String getDiaEntrega() {
+        return diaEntrega;
+    }
+
+    public void setDiaEntrega(String diaEntrega) {
+        this.diaEntrega = diaEntrega;
+    }
 
     public int getIdProveedor() {
         return idProveedor;
@@ -52,13 +60,6 @@ public class Proveedores implements Serializable {
         this.contactoProveedor = contactoProveedor;
     }
 
-    public Date getDiaEntrega() {
-        return diaEntrega;
-    }
-
-    public void setDiaEntrega(Date diaEntrega) {
-        this.diaEntrega = diaEntrega;
-    }
 
     public static final long serialVersionUID = 1L;
 }
