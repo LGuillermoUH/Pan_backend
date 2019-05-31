@@ -47,7 +47,7 @@
                     <li class="nav-item  px-lg-4">
                         <a class="nav-link" th:href="@{/nosotros}"><i class="fas fa-users"></i> <label class="label"> Nosotros</label></a>
                     </li>
-                    <li class="nav-item active px-lg-4">
+                    <li class="nav-item px-lg-4">
                         <a class="nav-link" th:href="@{/contacto}"><i class="fas fa-envelope"></i> <label class="label"> Contacto</label></a>
                     </li>
                     <li class="nav-item px-lg-4">
@@ -57,9 +57,8 @@
                             <div th:if="${#request.userPrincipal != null}" class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-user" aria-hidden="true"></i><span th:utext="${#request.userPrincipal.name}"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li> <a class="btn btn-primary" th:href="@{/productos}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Administrar</a></li>
-                                </ul>
-                                <ul class="dropdown-menu">
+                                        <li> <a class="btn btn-primary" th:href="@{/productos}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Administrar</a></li>
+                                        <br>
                                     <li> <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesión</a></li>
                                 </ul>
 
