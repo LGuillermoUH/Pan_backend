@@ -54,15 +54,6 @@
                             <img th:src="${pan.url}" alt="Pan" width="300" height="200" th:id="imgP + ${pan.idPan}">
                         </p>
                         <label th:id="descripcionP + ${pan.idPan}" th:text="${pan.descripcion}" style="visibility: hidden;"></label>
-                        <!--
-                        <p>
-                            <label>Cantidad: </label>
-                            <input type="text" placeholder="1" class="form-control" th:id="txtPrecio + ${pan.idPan}">
-                        </p>
-                        <p>
-                            <a class="btn btn-primary btn-xs" th:href="@{/carrito/} + ${pan.idPan}" th:text="Agregar"></a>
-                        </p>
-                        -->
                 </div>
             </div>
         </section>

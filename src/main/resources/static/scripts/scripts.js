@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#listaProductos div').click(function(){
     document.getElementById("selectedProduct").style.visibility = "visible";
     var idSelect = $(this).attr('id');
-    idSelect = idSelect.substring(11,12);
+    idSelect = idSelect.substring(11,13);
     var nombrePS = "nombreP"+idSelect;
     var precioPS = "precioP"+idSelect;
     var imgPS = "imgP"+idSelect;
