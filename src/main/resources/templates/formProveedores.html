@@ -172,13 +172,13 @@
 
               <!-- aqui va el form -->
               <div class="card-body">
-                  <form th:action="@{/añadirProducto}" th:object="${pan}" method="POST">                            
+                  <form th:action="@{/formProveedores}" th:object="${proveedores}" method="POST">                            
                       <div class="md-form form-sm mb-3">
                           <div class="input-group">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">Contacto</span>
                               </div>
-                              <input type="text" id="modalLRInput10" class="form-control" autocomplete="off" required>
+                              <input type="text" th:field="*{contactoProveedor}" id="modalLRInput10" class="form-control" autocomplete="off" required>
                           </div>                  
                       </div>
                       <div class="md-form form-sm mb-3">
@@ -186,7 +186,7 @@
                                   <div class="input-group-prepend">
                                       <span class="input-group-text">Dia de Entrega</span>
                                   </div>
-                                  <input type="date" id="dateTime" class="form-control" autocomplete="off" required>
+                                  <input type="text" th:field="*{diaEntrega}"  class="form-control" autocomplete="off" required>
                               </div>                  
                       </div>
                       <div class="md-form form-sm mb-3">
@@ -194,7 +194,7 @@
                                   <div class="input-group-prepend">
                                       <span class="input-group-text">Email</span>
                                   </div>
-                                  <input type="email" id="modalLRInput10" placeholder="you@example.com" class="form-control" autocomplete="off" required>
+                                  <input type="email" id="modalLRInput10" th:field="*{emailProveedor}" placeholder="you@example.com" class="form-control" autocomplete="off" required>
                               </div>                  
                           </div>
                       <div class="md-form form-sm mb-3">
@@ -202,10 +202,11 @@
                                   <div class="input-group-prepend">
                                       <span class="input-group-text">Nombre</span>
                                   </div>
-                                  <input type="text" step="any" id="modalLRInput10" class="form-control" autocomplete="off" required>
+                                  <input type="text" step="any" id="modalLRInput10" th:field="*{nombreProveedor}" class="form-control" autocomplete="off" required>
                               </div>                  
                        </div>
                        
+                      <input type="hidden" th:field="*{idProveedor}"  th:value="0">
                        <input class="btn btn-primary form-control" type="submit" value="Agregar">
                       </form> 
                 <!-- esto es un <hr> de toda la vida -->
