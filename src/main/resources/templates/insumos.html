@@ -172,7 +172,7 @@
 
           <!-- aqui va el form -->
           <div class="card-body">
-            <a th:href="@{/formInsumos}"><input type="button" value="Añadir un nuevo Producto"  class="btn btn-primary"></a>
+            <a th:href="@{/formInsumos}"><input type="button" value="Añadir un nuevo Insumo"  class="btn btn-primary"></a>
             <table class="table table-striped">
               <thead>
               <tr>
@@ -193,7 +193,7 @@
                 <td th:text="${insumo.nombreProveedor}"></td>
                 <td th:text="${insumo.precioInsumo}"></td>
                 <td th:text="${insumo.cantidadInsumos}"></td>
-                <td><a class="btn btn-primary" th:action="@{/formInsumos/} + ${insumo.idInsumo}" th:text="editar"></a></td>
+                <td><a class="btn btn-primary" th:href="@{/formInsumos/} + ${insumo.idInsumo}" th:text="editar"></a></td>
                 <td><a class="btn btn-danger btn-xs" th:href="@{/eliminarInsumos/} + ${insumo.idInsumo}" th:text="eliminar" onclick="return confirm('estas seguro');"></a></td>
               </tr>
               </tbody>

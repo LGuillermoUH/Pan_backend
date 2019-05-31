@@ -197,7 +197,7 @@
                       <td th:text="${pan.stockPan}"></td>
                       <td th:text="${pan.url}"></td>
                       <td th:text="${pan.descripcion}"></td>
-                      <td><a class="btn btn-primary" th:action="@{/añadirProducto/} + ${pan.idPan}" th:text="editar"></a></td>
+                      <td><a class="btn btn-primary" th:href="@{/añadirProducto/} + ${pan.idPan}" th:text="editar"></a></td>
                       <td><a class="btn btn-danger btn-xs" th:href="@{/eliminar/} + ${pan.idPan}" th:text="eliminar" onclick="return confirm('estas seguro');"></a></td>
                   </tr>
                   </tbody>
