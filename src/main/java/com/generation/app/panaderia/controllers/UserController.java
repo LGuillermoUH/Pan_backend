@@ -25,9 +25,19 @@ public class UserController {
 
         return "index";
     }
+    @GetMapping("/nosotros")
+    public String nosotros(Model model) {
+        model.addAttribute("userForm", new User());
+        return "nosotros";
+    }
+    @GetMapping("/contacto")
+    public String contacto(Model model) {
+        model.addAttribute("userForm", new User());
+        return "contacto";
+    }
 
     @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public String registration(@ModelAttribute("userForm") User userForm) {
 
         userService.save(userForm);
 
