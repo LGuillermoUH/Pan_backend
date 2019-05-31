@@ -6,15 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Barbarillo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <style>
-        .boxProducto
-        {
-            padding: 10px;
-            border: purple 2px solid;
-            border-radius: 20px 20px 20px 20px;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/css.css}">
 </head>
 <body>
     <div class="container">
@@ -23,16 +16,45 @@
         </header>
         <section>
             <div class="row">
-                <div th:each="pan: ${pan}" th:id="boxProducto + ${pan.idPan}" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 boxProducto">
-                    <div class="form-group">
-                        <p th:text="${pan.nombrePan}"></p>
+                <div id="selectedProduct" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 boxProductos" style="visibility: hidden;">
+                    <table border="1">
+                        <tbody>
+                            <tr>
+                                <td rowspan=3><img src="" alt="producto seleccionado" width="500" height="300" id="imgPS"></td>
+                                <td colspan=3 class="lblNombreProducto"><label id="nombrePS"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan=3><label id="descripcionPS" class="lblDescripcionProducto"></label></td>
+                            </tr>
+                            <tr>
+                                <td class="lblPrecio"><label id="precioPS"></label></td>
+                                <td width="120">
+                                    <div id="boxCantPanes">
+                    
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="boxAddCarrito">
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" id="listaProductos">
+                <div th:each="pan: ${pan}" th:id="boxProducto + ${pan.idPan}" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 form-group boxProductos">
+                        <p th:text="${pan.nombrePan}" th:id="nombreP + ${pan.idPan}"></p>
                         <p>
                             <label>Precio: </label>
-                            <label th:text="${pan.precioPan}"></label>
+                            <label th:text="${pan.precioPan}" th:id="precioP + ${pan.idPan}"></label>
                         </p>
                         <p>
-                            <img th:src="${pan.url}" alt="Pan" width="300" height="200">
+                            <img th:src="${pan.url}" alt="Pan" width="300" height="200" th:id="imgP + ${pan.idPan}">
                         </p>
+                        <label th:id="descripcionP + ${pan.idPan}" th:text="${pan.descripcion}" style="visibility: hidden;"></label>
+                        <!--
                         <p>
                             <label>Cantidad: </label>
                             <input type="text" placeholder="1" class="form-control" th:id="txtPrecio + ${pan.idPan}">
@@ -40,7 +62,7 @@
                         <p>
                             <a class="btn btn-primary btn-xs" th:href="@{/carrito/} + ${pan.idPan}" th:text="Agregar"></a>
                         </p>
-                    </div>
+                        -->
                 </div>
             </div>
         </section>
@@ -50,6 +72,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="/scripts/script.js"></script>
+    <script th:src="@{/scripts/scripts.js}"></script>
 </body>
 </html>

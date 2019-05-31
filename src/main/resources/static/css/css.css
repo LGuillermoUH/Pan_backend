@@ -1,0 +1,28 @@
+.boxProductos
+{
+	padding: 10px;
+    border: purple 2px solid;
+    border-radius: 20px 20px 20px 20px;
+}
+
+input
+{
+	size: 10;
+}
+
+.lblPrecio
+{
+    font-size: 60px;
+    text-align: center;
+}
+
+.lblNombreProducto
+{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.lblDescripcionProducto
+{
+	font-size: 30px;
+}
