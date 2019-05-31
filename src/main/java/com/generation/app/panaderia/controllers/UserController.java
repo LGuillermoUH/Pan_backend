@@ -60,4 +60,9 @@ public class UserController {
             model.addAttribute("message", "You have been logged out successfully.");
         return "redirect:/";
     }
+    @RequestMapping("/perfil/{nombre}")
+    public String perfil(@PathVariable(value = "nombre")String nombre,Model model){
+        model.addAttribute("user",userService.findByUsername(nombre));
+        return "index";
+    }
 }

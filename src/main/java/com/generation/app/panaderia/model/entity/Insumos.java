@@ -9,8 +9,6 @@ public class Insumos implements Serializable {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int idInsumo;
 
-        private int idProveedor;
-
         private String nombreInsumo;
 
         private Double precioInsumo;
@@ -23,14 +21,6 @@ public class Insumos implements Serializable {
 
     public void setIdInsumo(int idInsumo) {
         this.idInsumo = idInsumo;
-    }
-
-    public int getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
     }
 
     public String getNombreInsumo() {
