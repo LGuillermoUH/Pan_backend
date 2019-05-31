@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto ">
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link " href="#">
+                        <a class="nav-link " th:href="@{/}">
                             <i class="fas fa-bread-slice"></i>
                             <label class="label"> Barbarillo</label><i class="fas fa-cheese"></i></a>
 
@@ -57,7 +57,7 @@
                             <div th:if="${#request.userPrincipal != null}" class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fas fa-user" aria-hidden="true"></i><span th:utext="${#request.userPrincipal.name}"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li> <a class="btn btn-primary" th:href="@{/añadirProducto}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Administrar</a></li>
+                                    <li> <a class="btn btn-primary" th:href="@{/productos}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Administrar</a></li>
                                 </ul>
                                 <ul class="dropdown-menu">
                                     <li> <a class="btn btn-primary" th:href="@{/logout}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesión</a></li>
@@ -229,7 +229,6 @@
                         <div class="carousel-caption d-md-block">
                             <h5>100% Artesanal</h5>
                             <p>Mantenemos esa tradición que le da el toque especial a nuestros productos!</p>
-                            <input type="button" value="gsd" class="btn btn-primary">
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -237,7 +236,6 @@
                         <div class="carousel-caption d-md-block">
                             <h5>¡PROXIMAMENTE!</h5>
                             <p>Esperalos! dentro de poco tendremos nuestras delicias de la reposteria ahora en miniatura!</p>
-                            <input type="button" value="gsd" class="btn btn-primary">
                         </div>
                     </div>
                 </div>
