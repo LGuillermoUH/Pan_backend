@@ -43,17 +43,18 @@
                     </table>
                 </div>
             </div>
+            
             <div class="row" id="listaProductos">
                 <div th:each="pan: ${pan}" th:id="boxProducto + ${pan.idPan}" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 form-group boxProductos">
-                        <p th:text="${pan.nombrePan}" th:id="nombreP + ${pan.idPan}"></p>
-                        <p>
-                            <label>Precio: </label>
-                            <label th:text="${pan.precioPan}" th:id="precioP + ${pan.idPan}"></label>
-                        </p>
-                        <p>
-                            <img th:src="${pan.url}" alt="Pan" width="300" height="200" th:id="imgP + ${pan.idPan}">
-                        </p>
-                        <label th:id="descripcionP + ${pan.idPan}" th:text="${pan.descripcion}" style="visibility: hidden;"></label>
+                    <p th:text="${pan.nombrePan}" th:id="nombreP + ${pan.idPan}"></p>
+                    <p>
+                        <label>Precio: </label>
+                        <label th:text="${pan.precioPan}" th:id="precioP + ${pan.idPan}"></label>
+                    </p>
+                    <p>
+                        <img th:src="${pan.url}" alt="Pan" width="300" height="200" th:id="imgP + ${pan.idPan}">
+                    </p>
+                    <label th:id="descripcionP + ${pan.idPan}" th:text="${pan.descripcion}" style="visibility: hidden;"></label>
                 </div>
             </div>
         </section>

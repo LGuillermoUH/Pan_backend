@@ -26,3 +26,8 @@ input
 {
 	font-size: 30px;
 }
+
+img
+{
+	border-radius: 10%;
+}
