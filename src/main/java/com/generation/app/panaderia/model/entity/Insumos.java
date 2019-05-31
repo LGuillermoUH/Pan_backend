@@ -11,9 +11,19 @@ public class Insumos implements Serializable {
 
         private String nombreInsumo;
 
+        private String nombreProveedor;
+
         private Double precioInsumo;
 
         private String cantidadInsumos;
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
 
     public int getIdInsumo() {
         return idInsumo;
